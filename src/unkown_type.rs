@@ -1,8 +1,12 @@
-struct Woman;
-struct Man;
+struct Woman(String);
+struct Man(String);
 trait Human {
     fn eat(&self) {}
     fn clear(&self) {}
+    fn get_name(&self) -> &str;
+    fn proclaim(&self) {
+        println!("proclaim: {}", self.get_name())
+    }
 }
 struct Food;
 trait Eatable<T: Human> {
@@ -12,28 +16,36 @@ trait Eatable<T: Human> {
 
 impl<T: Human> Eatable<T> for Food {
     fn eating(&self, human: &T) {
-        println!("Eating food");
+        println!("from {} : Eating food", human.get_name());
         human.eat();
+        human.proclaim();
     }
     fn eaten(&self, human: &T) {
-        println!("Eating food");
+        println!("from {} : Eating food", human.get_name());
         human.clear();
+        human.proclaim();
     }
 }
 
 impl Human for Woman {
-    fn eat(&self, human: &T) {}
-    fn clear(&self, human: &T) {}
+    fn eat(&self) {}
+    fn clear(&self) {}
+    fn get_name(&self) -> &str {
+        &self.0
+    }
 }
 
 impl Human for Man {
-    fn eat(&self, human: &T) {}
-    fn clear(&self, human: &T) {}
+    fn eat(&self) {}
+    fn clear(&self) {}
+    fn get_name(&self) -> &str {
+        &self.0
+    }
 }
 
-fn run() {
+pub(crate) fn run() {
     let food = Food;
-    let heli = Woman;
+    let heli = Woman("woman".to_string());
 
     food.eating(&heli);
     food.eaten(&heli);
@@ -41,6 +53,4 @@ fn run() {
     let apple = Food;
     apple.eating(&heli);
     apple.eaten(&heli);
-
-    
 }

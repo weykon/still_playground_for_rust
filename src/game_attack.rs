@@ -39,12 +39,12 @@ impl Weapon {
 }
 
 struct Weapon {
-    name: Stirng,
+    name: String,
     damage: i32,
     attack_behavior: Box<dyn Attack>,
 }
 
-fn run() {
+pub fn run() {
     let sword = Sword {
         name: "Excalibur".to_string(),
         damage: 70,

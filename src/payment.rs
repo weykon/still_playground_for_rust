@@ -29,7 +29,7 @@ impl Order {
     }
 }
 
-fn run() {
+pub fn run() {
     let order = Order {
         payment: Box::new(CreditCard),
     };

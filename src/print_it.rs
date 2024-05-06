@@ -48,7 +48,7 @@ impl<T: Printable> PrintService<T> {
     }
 }
 
-fn run() {
+pub(crate) fn run() {
     let glory = GloryBusiness {
         name: "Glory".to_string(),
         address: "192.168".to_string(),
