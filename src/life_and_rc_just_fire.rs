@@ -20,13 +20,9 @@ pub fn run() {
     {
         let name = String::from("OK");
         // you = People { name: &name }; // 取消注释的话，这个时候就会是错误的
-        you = Person {
-            name: name,
-        };
+        you = Person { name: name };
     }
 
     // 在这里，name的生命周期已经结束，但是you仍然持有对它的引用，所以Rust编译器会报错。
     println!("People name: {}", you.name);
 }
-
-

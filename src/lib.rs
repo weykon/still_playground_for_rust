@@ -1,17 +1,19 @@
 #![allow(warnings)]
 mod add_digital;
 mod box_rc_refcell_weak_mutex_rwlock_cell;
-mod rougelike_game;
 mod continue_gat;
 mod copy_derive_more;
 mod dimension;
+mod downcast_ref_usage;
 mod enum_dispatch;
 mod enum_method_explain_weapon_sighting_telescope;
 mod event_box;
 mod exec_associated_type_fn;
+mod fn_as_param;
 mod game_attack;
 mod gat;
 mod gat_necessity;
+mod good_on_any_type_to_downcast_usage;
 mod how_HKT_be_defined;
 mod if_dyn_trait_no_size_to_downcast_usage;
 mod json_parser;
@@ -28,6 +30,8 @@ mod print_it;
 mod rc_refcell_come;
 mod ref_from_struct_by_lifetime;
 mod relation_type;
+mod rougelike_game;
+mod self_box_using;
 mod snake;
 mod spiral_travel_tree;
 mod still_at_GAT;
@@ -44,21 +48,21 @@ mod what_impl_for_trait_in_generic;
 mod who_use_first;
 mod why_gat_rether_than_generic;
 mod why_not_box;
-mod self_box_using;
-mod fn_as_param;
 
 use add_digital::run as add_digital_run;
-use rougelike_game::run as rougelike_game_run;
 use continue_gat::run as continue_gat_run;
 use copy_derive_more::run as copy_derive_more_run;
 use dimension::run as dimension_run;
+use downcast_ref_usage::run as downcast_ref_usage_run;
 use enum_dispatch::run as enum_dispatch_run;
 use enum_method_explain_weapon_sighting_telescope::run as enum_method_explain_weapon_sighting_telescope_run;
 use event_box::run as event_box_run;
 use exec_associated_type_fn::run as exec_associated_type_fn_run;
+use fn_as_param::run as fn_as_param_run;
 use game_attack::run as game_attack_run;
 use gat::run as GAT_run;
 use gat_necessity::run as gat_necessity_run;
+use good_on_any_type_to_downcast_usage::run as good_on_any_type_to_downcast_usage_run;
 use how_HKT_be_defined::run as how_HKT_be_defined_run;
 use if_dyn_trait_no_size_to_downcast_usage::run as if_dyn_trait_no_size_to_downcast_usage_run;
 use json_parser::run as json_parser_run;
@@ -75,6 +79,8 @@ use print_it::run as print_it_run;
 use rc_refcell_come::run as rc_refcell_come_run;
 use ref_from_struct_by_lifetime::run as ref_from_struct_by_lifetime_run;
 use relation_type::run as relation_type_run;
+use rougelike_game::run as rougelike_game_run;
+use self_box_using::run as self_box_using_run;
 use snake::run as snake_run;
 use spiral_travel_tree::run as spiral_travel_tree_run;
 use still_at_GAT::run as still_at_GAT_run;
@@ -91,9 +97,6 @@ use what_impl_for_trait_in_generic::run as what_impl_for_trait_in_generic_run;
 use who_use_first::run as who_use_first_run;
 use why_gat_rether_than_generic::run as why_gat_rether_than_generic_run;
 use why_not_box::run as why_not_box_run;
-use self_box_using::run as self_box_using_run;
-use fn_as_param::run as fn_as_param_run;
-
 pub trait Module {
     fn try_run(&self);
 }
@@ -264,7 +267,13 @@ pub fn run() {
             },
             File {
                 run_fn: Box::new(fn_as_param_run),
-            }
+            },
+            File {
+                run_fn: Box::new(downcast_ref_usage_run),
+            },
+            File {
+                run_fn: Box::new(good_on_any_type_to_downcast_usage_run),
+            },
         ],
     };
 
