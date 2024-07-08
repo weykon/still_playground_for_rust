@@ -1,5 +1,6 @@
 #![allow(warnings)]
 mod add_digital;
+mod avalible_outside_param_which_input;
 mod box_rc_refcell_weak_mutex_rwlock_cell;
 mod continue_gat;
 mod copy_derive_more;
@@ -50,6 +51,7 @@ mod why_gat_rether_than_generic;
 mod why_not_box;
 
 use add_digital::run as add_digital_run;
+use avalible_outside_param_which_input::run as avalible_outside_param_which_input_run;
 use continue_gat::run as continue_gat_run;
 use copy_derive_more::run as copy_derive_more_run;
 use dimension::run as dimension_run;
@@ -170,9 +172,6 @@ pub fn run() {
                 run_fn: Box::new(if_dyn_trait_no_size_to_downcast_usage_run),
             },
             File {
-                run_fn: Box::new(life_and_rc_just_fire_run),
-            },
-            File {
                 run_fn: Box::new(who_use_first_run),
             },
             File {
@@ -273,6 +272,12 @@ pub fn run() {
             },
             File {
                 run_fn: Box::new(good_on_any_type_to_downcast_usage_run),
+            },
+            File {
+                run_fn: Box::new(life_and_rc_just_fire_run),
+            },
+            File {
+                run_fn: Box::new(avalible_outside_param_which_input_run),
             },
         ],
     };

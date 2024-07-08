@@ -25,4 +25,31 @@ pub fn run() {
 
     // 在这里，name的生命周期已经结束，但是you仍然持有对它的引用，所以Rust编译器会报错。
     println!("People name: {}", you.name);
+
+    start();
+}
+
+// a custom ref usage
+fn start() {
+    let a = 100;
+    let b = work(&a);
+    println!("b: {:?}", *b);
+
+    let app = App { ready_set_data: 0 };
+    let b = set_data(&app.ready_set_data);
+    println!("b: {:?}", *b);
+}
+
+fn work(a_ref: &i32) -> &mut i32 {
+    let b = *a_ref + 100;
+    Box::leak(Box::new(b))
+}
+
+struct App {
+    ready_set_data: i32,
+}
+
+fn set_data(loca: &i32) -> &mut i32{
+    let new_data = *loca + 100;
+    Box::leak(Box::new(new_data))
 }
