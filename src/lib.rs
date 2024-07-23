@@ -15,12 +15,14 @@ mod game_attack;
 mod gat;
 mod gat_necessity;
 mod good_on_any_type_to_downcast_usage;
+mod higher_rank_trait_bound;
 mod how_HKT_be_defined;
 mod if_dyn_trait_no_size_to_downcast_usage;
 mod json_parser;
 mod lateral_abstract;
 mod life_and_rc_just_fire;
 mod little_clearly;
+mod lots_generic;
 mod more_gat;
 mod onion;
 mod paint_tree;
@@ -29,6 +31,7 @@ mod pls_easy_ast_token;
 mod plugin_system;
 mod print_it;
 mod rc_refcell_come;
+mod ref_and_use_anywhere;
 mod ref_from_struct_by_lifetime;
 mod relation_type;
 mod rougelike_game;
@@ -41,6 +44,7 @@ mod storage;
 mod str_and_string;
 mod tree_a_look;
 mod tree_trait_as_generic;
+mod try_option_param;
 mod try_weak_weak;
 mod ui;
 mod unkown_type;
@@ -49,8 +53,6 @@ mod what_impl_for_trait_in_generic;
 mod who_use_first;
 mod why_gat_rether_than_generic;
 mod why_not_box;
-mod ref_and_use_anywhere;
-mod lots_generic;
 
 use add_digital::run as add_digital_run;
 use avalible_outside_param_which_input::run as avalible_outside_param_which_input_run;
@@ -67,12 +69,14 @@ use game_attack::run as game_attack_run;
 use gat::run as GAT_run;
 use gat_necessity::run as gat_necessity_run;
 use good_on_any_type_to_downcast_usage::run as good_on_any_type_to_downcast_usage_run;
+use higher_rank_trait_bound::run as higher_rank_trait_bound_run;
 use how_HKT_be_defined::run as how_HKT_be_defined_run;
 use if_dyn_trait_no_size_to_downcast_usage::run as if_dyn_trait_no_size_to_downcast_usage_run;
 use json_parser::run as json_parser_run;
 use lateral_abstract::run as lateral_abstract_run;
 use life_and_rc_just_fire::run as life_and_rc_just_fire_run;
 use little_clearly::run as little_clearly_run;
+use lots_generic::run as lots_generic_run;
 use more_gat::run as more_gat_run;
 use onion::run as onion_run;
 use paint_tree::run as paint_tree_run;
@@ -81,6 +85,7 @@ use pls_easy_ast_token::run as pls_easy_ast_token_run;
 use plugin_system::run as plugin_system_run;
 use print_it::run as print_it_run;
 use rc_refcell_come::run as rc_refcell_come_run;
+use ref_and_use_anywhere::run as ref_and_use_anywhere_run;
 use ref_from_struct_by_lifetime::run as ref_from_struct_by_lifetime_run;
 use relation_type::run as relation_type_run;
 use rougelike_game::run as rougelike_game_run;
@@ -93,6 +98,7 @@ use storage::run as storage_run;
 use str_and_string::run as str_and_string_run;
 use tree_a_look::run as tree_a_look_run;
 use tree_trait_as_generic::run as tree_trait_as_generic_run;
+use try_option_param::run as try_option_param_run;
 use try_weak_weak::run as try_weak_weak_run;
 use ui::run as ui_run;
 use unkown_type::run as unkown_type_run;
@@ -101,10 +107,6 @@ use what_impl_for_trait_in_generic::run as what_impl_for_trait_in_generic_run;
 use who_use_first::run as who_use_first_run;
 use why_gat_rether_than_generic::run as why_gat_rether_than_generic_run;
 use why_not_box::run as why_not_box_run;
-use ref_and_use_anywhere::run as ref_and_use_anywhere_run;
-use lots_generic::run as lots_generic_run;
-
-
 pub trait Module {
     fn try_run(&self);
 }
@@ -285,12 +287,18 @@ pub fn run() {
             File {
                 run_fn: Box::new(avalible_outside_param_which_input_run),
             },
-            File{ 
+            File {
                 run_fn: Box::new(ref_and_use_anywhere_run),
             },
             File {
                 run_fn: Box::new(lots_generic_run),
-            }
+            },
+            File {
+                run_fn: Box::new(try_option_param_run),
+            },
+            File {
+                run_fn: Box::new(higher_rank_trait_bound_run),
+            },
         ],
     };
 
