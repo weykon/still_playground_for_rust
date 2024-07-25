@@ -53,6 +53,7 @@ mod what_impl_for_trait_in_generic;
 mod who_use_first;
 mod why_gat_rether_than_generic;
 mod why_not_box;
+mod cow_borrowed_need_remember;
 
 use add_digital::run as add_digital_run;
 use avalible_outside_param_which_input::run as avalible_outside_param_which_input_run;
@@ -107,6 +108,7 @@ use what_impl_for_trait_in_generic::run as what_impl_for_trait_in_generic_run;
 use who_use_first::run as who_use_first_run;
 use why_gat_rether_than_generic::run as why_gat_rether_than_generic_run;
 use why_not_box::run as why_not_box_run;
+use cow_borrowed_need_remember::run as cow_borrowed_need_remember_run;
 pub trait Module {
     fn try_run(&self);
 }
@@ -299,6 +301,9 @@ pub fn run() {
             File {
                 run_fn: Box::new(higher_rank_trait_bound_run),
             },
+            File{
+                run_fn: Box::new(cow_borrowed_need_remember_run),
+            }
         ],
     };
 
