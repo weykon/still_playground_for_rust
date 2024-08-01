@@ -55,7 +55,10 @@ mod why_gat_rether_than_generic;
 mod why_not_box;
 mod cow_borrowed_need_remember;
 mod keep_refcell_keypoint;
-
+mod imagine_impl_any_t;
+mod sandy;
+mod again_any_asany;
+mod impl_dyn_trait;
 
 use add_digital::run as add_digital_run;
 use avalible_outside_param_which_input::run as avalible_outside_param_which_input_run;
@@ -112,6 +115,10 @@ use why_gat_rether_than_generic::run as why_gat_rether_than_generic_run;
 use why_not_box::run as why_not_box_run;
 use cow_borrowed_need_remember::run as cow_borrowed_need_remember_run;
 use keep_refcell_keypoint::run as keep_refcell_keypoint_run;
+use imagine_impl_any_t::run as imagine_impl_any_t_run;
+use sandy::run as sandy_run;
+use again_any_asany::run as again_any_asany_run;
+use impl_dyn_trait::run as impl_dyn_trait_run;
 pub trait Module {
     fn try_run(&self);
 }
@@ -309,6 +316,18 @@ pub fn run() {
             },
             File {
                 run_fn: Box::new(keep_refcell_keypoint_run),
+            },
+            File {
+                run_fn: Box::new(imagine_impl_any_t_run),
+            },
+            File {
+                run_fn: Box::new(sandy_run),
+            },
+            File {
+                run_fn: Box::new(again_any_asany_run),
+            },
+            File { 
+                run_fn: Box::new(impl_dyn_trait_run),
             }
         ],
     };

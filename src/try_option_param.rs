@@ -78,8 +78,38 @@ mod try_enum {
     }
 }
 mod try_into_thing {
-    enum ParamType<T> {
+    use std::{default, fmt::{Debug, Display}};
+
+    enum ParamType<T = ()> {
         Default(),
         Extra(T),
+    }
+    impl Default for ParamType<()> {
+        fn default() -> Self {
+            ParamType::Default()
+        }
+    }
+
+    impl<T> From<T> for ParamType<T> {
+        fn from(t: T) -> Self {
+            ParamType::Extra(t)
+        }
+    }
+
+    fn input_param<T>(input: ParamType<T>) where T: Debug {
+        match input {
+            ParamType::Default() => {
+                println!("Default");
+            }
+            ParamType::Extra(t) => {
+                println!("Extra : {:?}", t);
+            }
+        }
+    }
+    fn run() {
+        let a = ParamType::Default::<()>();
+        let b = ParamType::Extra(1);
+        input_param(a);
+        input_param(b);
     }
 }
