@@ -1,9 +1,12 @@
 #![allow(warnings)]
 mod add_digital;
+mod again_any_asany;
+mod async_pin_future_a_trip_now;
 mod avalible_outside_param_which_input;
 mod box_rc_refcell_weak_mutex_rwlock_cell;
 mod continue_gat;
 mod copy_derive_more;
+mod cow_borrowed_need_remember;
 mod dimension;
 mod downcast_ref_usage;
 mod enum_dispatch;
@@ -18,7 +21,10 @@ mod good_on_any_type_to_downcast_usage;
 mod higher_rank_trait_bound;
 mod how_HKT_be_defined;
 mod if_dyn_trait_no_size_to_downcast_usage;
+mod imagine_impl_any_t;
+mod impl_dyn_trait;
 mod json_parser;
+mod keep_refcell_keypoint;
 mod lateral_abstract;
 mod life_and_rc_just_fire;
 mod little_clearly;
@@ -35,6 +41,7 @@ mod ref_and_use_anywhere;
 mod ref_from_struct_by_lifetime;
 mod relation_type;
 mod rougelike_game;
+mod sandy;
 mod self_box_using;
 mod snake;
 mod spiral_travel_tree;
@@ -49,21 +56,19 @@ mod try_weak_weak;
 mod ui;
 mod unkown_type;
 mod weak_detail;
+mod what_and_why_pin_unpin;
 mod what_impl_for_trait_in_generic;
 mod who_use_first;
 mod why_gat_rether_than_generic;
 mod why_not_box;
-mod cow_borrowed_need_remember;
-mod keep_refcell_keypoint;
-mod imagine_impl_any_t;
-mod sandy;
-mod again_any_asany;
-mod impl_dyn_trait;
 
 use add_digital::run as add_digital_run;
+use again_any_asany::run as again_any_asany_run;
+use async_pin_future_a_trip_now::run as async_pin_future_a_trip_now_run;
 use avalible_outside_param_which_input::run as avalible_outside_param_which_input_run;
 use continue_gat::run as continue_gat_run;
 use copy_derive_more::run as copy_derive_more_run;
+use cow_borrowed_need_remember::run as cow_borrowed_need_remember_run;
 use dimension::run as dimension_run;
 use downcast_ref_usage::run as downcast_ref_usage_run;
 use enum_dispatch::run as enum_dispatch_run;
@@ -78,7 +83,10 @@ use good_on_any_type_to_downcast_usage::run as good_on_any_type_to_downcast_usag
 use higher_rank_trait_bound::run as higher_rank_trait_bound_run;
 use how_HKT_be_defined::run as how_HKT_be_defined_run;
 use if_dyn_trait_no_size_to_downcast_usage::run as if_dyn_trait_no_size_to_downcast_usage_run;
+use imagine_impl_any_t::run as imagine_impl_any_t_run;
+use impl_dyn_trait::run as impl_dyn_trait_run;
 use json_parser::run as json_parser_run;
+use keep_refcell_keypoint::run as keep_refcell_keypoint_run;
 use lateral_abstract::run as lateral_abstract_run;
 use life_and_rc_just_fire::run as life_and_rc_just_fire_run;
 use little_clearly::run as little_clearly_run;
@@ -95,6 +103,7 @@ use ref_and_use_anywhere::run as ref_and_use_anywhere_run;
 use ref_from_struct_by_lifetime::run as ref_from_struct_by_lifetime_run;
 use relation_type::run as relation_type_run;
 use rougelike_game::run as rougelike_game_run;
+use sandy::run as sandy_run;
 use self_box_using::run as self_box_using_run;
 use snake::run as snake_run;
 use spiral_travel_tree::run as spiral_travel_tree_run;
@@ -109,16 +118,11 @@ use try_weak_weak::run as try_weak_weak_run;
 use ui::run as ui_run;
 use unkown_type::run as unkown_type_run;
 use weak_detail::run as weak_detail_run;
+use what_and_why_pin_unpin::run as what_and_why_pin_unpin_run;
 use what_impl_for_trait_in_generic::run as what_impl_for_trait_in_generic_run;
 use who_use_first::run as who_use_first_run;
 use why_gat_rether_than_generic::run as why_gat_rether_than_generic_run;
 use why_not_box::run as why_not_box_run;
-use cow_borrowed_need_remember::run as cow_borrowed_need_remember_run;
-use keep_refcell_keypoint::run as keep_refcell_keypoint_run;
-use imagine_impl_any_t::run as imagine_impl_any_t_run;
-use sandy::run as sandy_run;
-use again_any_asany::run as again_any_asany_run;
-use impl_dyn_trait::run as impl_dyn_trait_run;
 pub trait Module {
     fn try_run(&self);
 }
@@ -311,7 +315,7 @@ pub fn run() {
             File {
                 run_fn: Box::new(higher_rank_trait_bound_run),
             },
-            File{
+            File {
                 run_fn: Box::new(cow_borrowed_need_remember_run),
             },
             File {
@@ -326,9 +330,15 @@ pub fn run() {
             File {
                 run_fn: Box::new(again_any_asany_run),
             },
-            File { 
+            File {
                 run_fn: Box::new(impl_dyn_trait_run),
-            }
+            },
+            File {
+                run_fn: Box::new(async_pin_future_a_trip_now_run),
+            },
+            File {
+                run_fn: Box::new(what_and_why_pin_unpin_run),
+            },
         ],
     };
 
