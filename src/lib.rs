@@ -2,6 +2,7 @@
 mod add_digital;
 mod again_any_asany;
 mod async_pin_future_a_trip_now;
+mod async_read_interface_design;
 mod avalible_outside_param_which_input;
 mod box_rc_refcell_weak_mutex_rwlock_cell;
 mod continue_gat;
@@ -61,10 +62,13 @@ mod what_impl_for_trait_in_generic;
 mod who_use_first;
 mod why_gat_rether_than_generic;
 mod why_not_box;
+mod common_data_ram_concept;
+mod sum_add_to_born;
 
 use add_digital::run as add_digital_run;
 use again_any_asany::run as again_any_asany_run;
 use async_pin_future_a_trip_now::run as async_pin_future_a_trip_now_run;
+use async_read_interface_design::run as async_read_interface_design_run;
 use avalible_outside_param_which_input::run as avalible_outside_param_which_input_run;
 use continue_gat::run as continue_gat_run;
 use copy_derive_more::run as copy_derive_more_run;
@@ -123,6 +127,8 @@ use what_impl_for_trait_in_generic::run as what_impl_for_trait_in_generic_run;
 use who_use_first::run as who_use_first_run;
 use why_gat_rether_than_generic::run as why_gat_rether_than_generic_run;
 use why_not_box::run as why_not_box_run;
+use common_data_ram_concept::run as common_data_ram_concept_run;
+use sum_add_to_born::run as sum_add_to_born_run;
 pub trait Module {
     fn try_run(&self);
 }
@@ -339,6 +345,15 @@ pub fn run() {
             File {
                 run_fn: Box::new(what_and_why_pin_unpin_run),
             },
+            File {
+                run_fn: Box::new(async_read_interface_design_run),
+            },
+            File { 
+                run_fn: Box::new(common_data_ram_concept_run),
+            },
+            File { 
+                run_fn: Box::new(sum_add_to_born_run),
+            }
         ],
     };
 
