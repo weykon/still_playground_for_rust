@@ -76,13 +76,15 @@ fn main2() {
 }
 // 使用Box::pin 可以将这个struct存入堆中，然后将它pin在一个内存的固定位置。
 
-
-
 // pin 数据的场景需要
 // Pinning an object in Rust ensures that the object remains in a fixed location in memory (vital for asynchronous programming).
-// 
+// 翻译：在Rust中固定对象的位置可以确保对象在内存中保持固定位置（对于异步编程至关重要）。
 // Pinning can help prevent data races and other concurrency issues from arising when multiple processes access the same data.
-// 
+// 翻译：当多个进程访问相同的数据时，固定可以帮助防止数据竞争和其他并发问题的发生。
 // Pinning can also help improve performance by reducing the copying and moving of the code when working with asynchronous data.
-// 
+// 翻译：当处理异步数据时，固定还可以通过减少代码的复制和移动来提高性能。
 // Pinning ensures that certain types of data are always available in memory, even if the computer swaps out other parts of the program.
+// 翻译：固定确保某些类型的数据始终在内存中可用，即使计算机交换程序的其他部分也是如此。
+
+// 比如举一个需要使用pin相关的需要在异步下的特殊写法的例子
+

@@ -5,6 +5,7 @@ mod async_pin_future_a_trip_now;
 mod async_read_interface_design;
 mod avalible_outside_param_which_input;
 mod box_rc_refcell_weak_mutex_rwlock_cell;
+mod common_data_ram_concept;
 mod continue_gat;
 mod copy_derive_more;
 mod cow_borrowed_need_remember;
@@ -34,6 +35,7 @@ mod more_gat;
 mod onion;
 mod paint_tree;
 mod payment;
+mod what_phantomdata_like;
 mod pls_easy_ast_token;
 mod plugin_system;
 mod print_it;
@@ -50,6 +52,7 @@ mod still_at_GAT;
 mod still_gat;
 mod storage;
 mod str_and_string;
+mod sum_add_to_born;
 mod tree_a_look;
 mod tree_trait_as_generic;
 mod try_option_param;
@@ -62,14 +65,13 @@ mod what_impl_for_trait_in_generic;
 mod who_use_first;
 mod why_gat_rether_than_generic;
 mod why_not_box;
-mod common_data_ram_concept;
-mod sum_add_to_born;
 
 use add_digital::run as add_digital_run;
 use again_any_asany::run as again_any_asany_run;
 use async_pin_future_a_trip_now::run as async_pin_future_a_trip_now_run;
 use async_read_interface_design::run as async_read_interface_design_run;
 use avalible_outside_param_which_input::run as avalible_outside_param_which_input_run;
+use common_data_ram_concept::run as common_data_ram_concept_run;
 use continue_gat::run as continue_gat_run;
 use copy_derive_more::run as copy_derive_more_run;
 use cow_borrowed_need_remember::run as cow_borrowed_need_remember_run;
@@ -99,6 +101,7 @@ use more_gat::run as more_gat_run;
 use onion::run as onion_run;
 use paint_tree::run as paint_tree_run;
 use payment::run as payment_run;
+use what_phantomdata_like::run as what_phantomdata_like_run;
 use pls_easy_ast_token::run as pls_easy_ast_token_run;
 use plugin_system::run as plugin_system_run;
 use print_it::run as print_it_run;
@@ -115,6 +118,7 @@ use still_at_GAT::run as still_at_GAT_run;
 use still_gat::run as still_gat_run;
 use storage::run as storage_run;
 use str_and_string::run as str_and_string_run;
+use sum_add_to_born::run as sum_add_to_born_run;
 use tree_a_look::run as tree_a_look_run;
 use tree_trait_as_generic::run as tree_trait_as_generic_run;
 use try_option_param::run as try_option_param_run;
@@ -127,8 +131,7 @@ use what_impl_for_trait_in_generic::run as what_impl_for_trait_in_generic_run;
 use who_use_first::run as who_use_first_run;
 use why_gat_rether_than_generic::run as why_gat_rether_than_generic_run;
 use why_not_box::run as why_not_box_run;
-use common_data_ram_concept::run as common_data_ram_concept_run;
-use sum_add_to_born::run as sum_add_to_born_run;
+
 pub trait Module {
     fn try_run(&self);
 }
@@ -348,12 +351,15 @@ pub fn run() {
             File {
                 run_fn: Box::new(async_read_interface_design_run),
             },
-            File { 
+            File {
                 run_fn: Box::new(common_data_ram_concept_run),
             },
-            File { 
+            File {
                 run_fn: Box::new(sum_add_to_born_run),
-            }
+            },
+            File {
+                run_fn: Box::new(what_phantomdata_like_run),
+            },
         ],
     };
 
